@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/templates/home_template.xhtml">
+
+        <ui:define name="content">
+            <div class="page-title-container">
+                <div class="container">
+                    <div class="page-title pull-left">
+                        <h2 class="entry-title">REGISTER NOW</h2>
+                    </div>
+                    <ul class="breadcrumbs pull-right">
+
+                    </ul>
+                </div>
+            </div>
+
+            <section id="content">
+                <div class="container">
+                    <div id="main">
+                        <div class="col-md-6 col-md-offset-3">
+                            <h:form class="form-horizontal" role="form">
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="fname" class="form-label col-md-4">First Name</label>
+                                    <div class="col-md-8">
+                                        <h:inputText class="form-control" id="fname" value="#{registerController.user.firstname}" a:placeholder="First Name" a:required="true" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="lname" class="form-label col-md-4">Last Name</label>
+                                    <div class="col-md-8">
+                                        <h:inputText class="form-control" id="lname" value="#{registerController.user.lastname}" a:placeholder="Last Name" a:required="true" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="address" class="form-label col-md-4">Address</label>
+                                    <div class="col-md-8">
+                                        <h:inputTextarea class="form-control" id="address" value="#{registerController.user.address}" a:placeholder="Address" a:required="true" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="email" class="form-label col-md-4">Email</label>
+                                    <div class="col-md-8">
+                                        <h:inputText class="form-control" id="email" value="#{registerController.user.email}" a:placeholder="Email" a:required="true" a:pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="phone" class="form-label col-md-4">Phone</label>
+                                    <div class="col-md-8">
+                                        <h:inputText class="form-control" id="phone" value="#{registerController.user.phone}" a:placeholder="Phone" a:required="true" onkeypress="return isNumberKey(event)" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="username" class="form-label col-md-4">Username</label>
+                                    <div class="col-md-8">
+                                        <h:inputText class="form-control" id="username" value="#{registerController.login.username}" a:placeholder="Username" a:required="true" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="password" class="form-label col-md-4">Password</label>
+                                    <div class="col-md-8">
+                                        <h:inputSecret class="form-control" id="password" value="#{registerController.login.password}" a:placeholder="Password" a:required="true" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="cpassword" class="form-label col-md-4">Confirm Password</label>
+                                    <div class="col-md-8">
+                                        <h:inputSecret class="form-control" id="cpassword" a:placeholder="Confirm Password" a:required="true" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="question" class="form-label col-md-4">Security Question</label>
+                                    <div class="col-md-8">
+                                        <h:selectOneMenu class="form-control" id="question" a:required="true" value="#{registerController.user.question}">
+                                            <f:selectItem itemValue="" itemLabel="Select" />
+                                            <f:selectItem itemValue="Your pet name" itemLabel="Your pet name" />
+                                            <f:selectItem itemValue="Your mother tongue" itemLabel="Your mother tongue" />
+                                            <f:selectItem itemValue="Your favorite place" itemLabel="Your favorite place" />
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="answer" class="form-label col-md-4">Answer</label>
+                                    <div class="col-md-8">
+                                        <h:inputText class="form-control" id="answer" a:placeholder="Answer" a:required="true" value="#{registerController.user.answer}" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="utype" class="form-label col-md-4">User Type</label>
+                                    <div class="col-md-8">
+                                        <h:selectOneMenu class="form-control" id="utype" a:required="true" value="#{registerController.login.type}">
+                                            <f:selectItem itemValue="" itemLabel="Select" />
+                                            <f:selectItem itemValue="Tourist" itemLabel="Tourist" />
+                                            <f:selectItem itemValue="Guide" itemLabel="Guide" />
+                                            <f:selectItem itemValue="Taxi" itemLabel="Taxi Agent" />
+                                            <f:selectItem itemValue="Hotel" itemLabel="Hotel / Resort" />
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <div class="col-md-8 col-md-offset-4">
+                                        <h:commandButton action="#{registerController.createUser}" class="btn btn-primary full-width btn-large animated fadeInUp" value="Next" />
+                                    </div>
+                                </div>
+
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </ui:define>
+    </ui:composition>
+</html>

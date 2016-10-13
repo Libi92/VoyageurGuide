@@ -1,0 +1,27 @@
+/*
+ * Title:   Custom Style File
+ * Author:  http://themeforest.net/user/soaptheme 
+ */
+
+#map-canvas{
+	height: 400px;
+}
+
+table.table-select tr{
+	cursor: pointer;
+}
+
+#place_list{
+	height: 320px;
+	overflow-y: auto;
+}
+
+label.label-down{
+	margin-top: 15px;
+}
+span.error{
+	color: #f00;
+}
+#sub_btn{
+	display: none;
+}

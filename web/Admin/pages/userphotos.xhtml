@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:composition>
+        <div class="row image-box style2">
+
+            <ui:repeat value="#{adminController.nonApprovedGallery}" var="gallery">
+
+                <div class="col-md-6">
+                    <article class="box">
+                        <figure>
+                            <a href="#" title="">
+                                <h:graphicImage name="#{gallery.gallery.image}" width="270" height="192" />
+                            </a>
+                        </figure>
+                        <div class="details">
+                            <h4>#{gallery.gallery.title}</h4>
+                            <h5 class="skin-color">#{gallery.user}</h5>
+                            <blockquote>@#{gallery.place}</blockquote>
+                            <p>#{gallery.gallery.description}</p>
+
+                        </div>
+                    </article>
+                    <h:commandLink class="btn btn-success" value="Accept" action="#{adminController.galleryAction(gallery.gallery.galleryid, 1)}" />
+                    <h:commandLink class="btn btn-danger" value="Reject" action="#{adminController.galleryAction(gallery.gallery.galleryid, 0)}" />
+
+                </div>
+
+            </ui:repeat>
+        </div>
+
+    </ui:composition>
+
+</html>

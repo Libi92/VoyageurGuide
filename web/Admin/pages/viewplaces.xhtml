@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:composition>
+        <div class="container shortcode">
+            <h1>Explore Places</h1>
+            <div class="col-md-10 image-box hotel listing-style1">
+                <ui:repeat value="#{adminController.places}" var="place" varStatus="id">
+                    
+                    <div class="col-sm-6 col-md-4">
+                        <article class="box">
+                            <figure>
+                                <a href="#" class="hover-effect">
+                                    <h:outputText value="#{place.image eq null}" />
+                                    <c:if test="#{place.image eq null}">
+                                        <h:outputText value="Hello" />
+                                        <h:graphicImage name="No_image_available.jpg" library="images" width="270" height="160" />
+                                    </c:if>
+                                    
+                                    <c:if test="#{place.image != null}">
+                                        <h:outputText value="#{place.image.image}" />
+                                        <h:graphicImage name="#{place.image.image}" width="270" height="160" />
+                                    </c:if>
+                                    
+                                </a>
+                            </figure>
+                            <div class="details">
+                                <!-- <span class="price"><small>avg/night</small>$188</span> -->
+                                <h4 class="box-title">#{place.place.place}<small>#{place.district.district}</small></h4>
+                                <div class="feedback">
+                                    <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" title="4 stars"><span style="width: 80%;" class="five-stars"></span></div>
+                                    <span class="review">170 reviews</span>
+                                </div>
+                                <p class="description">#{place.place.description}</p>
+                                <div class="action">
+                                    <a class="button btn-small" href="#">SELECT</a>
+                                    <a class="button btn-small yellow popup-map" href="#" data-box="#{place.place.latitude}, #{place.place.longitude}">VIEW ON MAP</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </ui:repeat>
+            </div>
+        </div>
+
+    </ui:composition>
+</html>

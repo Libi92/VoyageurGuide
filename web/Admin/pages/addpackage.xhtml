@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition>
+        <div class="col-md-12"> 
+            <h3 class="skin-color">Add New Package</h3>
+            <div id="page1">
+
+                <h:form class="form-horizontal">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <h:inputText class="form-control" a:placeholder="Name" a:required="true" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <h:inputTextarea class="form-control" a:placeholder="Description" a:required="true" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 label-down" for="days">Days</label>
+                            <div class="col-md-9">
+                                <h:inputText class="form-control" onkeypress="return isNumberKey(event)" a:placeholder="Days" a:required="true" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 label-down" for="night">Night</label>
+                            <div class="col-md-9">
+                                <h:inputText class="form-control" onkeypress="return isNumberKey(event)" a:placeholder="Night" a:required="true" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 label-down" for="date">Plan Date</label>
+                            <div class="col-md-9">
+                                <h:inputText class="form-control datepicker" a:placeholder="Plan Date" a:required="true" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 label-down" for="maxno">Max Persons</label>
+                            <div class="col-md-9">
+                                <h:inputText class="form-control" onkeypress="return isNumberKey(event)" a:placeholder="Max Persons" a:required="true" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 label-down" for="maxrooms">Rooms Required</label>
+                            <div class="col-md-9">
+                                <h:inputText class="form-control" onkeypress="return isNumberKey(event)" a:placeholder="Rooms Required" a:required="true" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 label-down" for="entries">Max Entries</label>
+                            <div class="col-md-9">
+                                <h:inputText class="form-control" onkeypress="return isNumberKey(event)" a:placeholder="Max Entries" a:required="true" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-md-offset-1">
+                        <div class="form-group">
+                            <label for="places">Places</label>
+                            <div id="place_list">
+
+                                <div class="checkbox-inline">
+                                    <h:selectManyCheckbox value="#{adminController.selectedPlaces}" layout="pageDirection">
+                                        <f:selectItems value="#{adminController.allPlaces}" var="place" itemLabel="#{place.place}" itemValue="#{place.placeid}" />
+                                    </h:selectManyCheckbox>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-success btn-block" value="Add" />
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+
+            <div id="page2">
+
+            </div>
+        </div>
+        
+    </ui:composition>
+</html>

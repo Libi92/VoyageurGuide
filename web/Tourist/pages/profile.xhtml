@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition>
+
+        <div class="view-profile">
+            <article class="image-box style2 box innerstyle personal-details">
+                <figure>
+                    <a title="" href="#"></a>
+                </figure>
+                <div class="details">
+                    <a href="#" class="button btn-mini pull-right edit-profile-btn">EDIT PROFILE</a>
+                    <h2 class="box-title fullname">#{touristController.profile.user.firstname}</h2>
+                    <dl class="term-description">
+                        <dt>user name:</dt><dd>#{touristController.profile.login.username}</dd>
+                        <dt>first name:</dt><dd>#{touristController.profile.user.firstname}</dd>
+                        <dt>last name:</dt><dd>#{touristController.profile.user.lastname}</dd>
+                        <dt>email:</dt><dd>#{touristController.profile.user.email}</dd>
+                        <dt>phone number:</dt><dd>#{touristController.profile.user.phone}</dd>
+                        <dt>address:</dt><dd>#{touristController.profile.user.address}</dd>
+                        <dt>Date of birth:</dt><dd>#{touristController.profile.tourist.dob}</dd>
+                        <dt>age:</dt><dd>#{touristController.profile.tourist.age}</dd>
+                        <dt>gender:</dt><dd>#{touristController.profile.tourist.gender}</dd>
+                        <dt>nationality:</dt><dd>#{touristController.profile.tourist.nationality}</dd>
+                    </dl>
+                </div>
+            </article>
+            <hr/>
+
+            <div class="intro">
+
+            </div>
+            <hr/>
+
+            <div class="suggestions image-carousel style2" data-animation="slide" data-item-width="170" data-item-margin="22">
+
+            </div>
+            <hr/>
+            <div class="row">
+            </div>
+        </div>
+        <div class="edit-profile">
+            <h:form class="edit-profile-form">
+                <h2>Personal Details</h2>
+                <div class="col-sm-9 no-padding no-float">
+                    <div class="row form-group">
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="fname">First Name</label>
+                            <h:inputText class="form-control" value="#{touristController.profile.user.firstname}" a:required="true" />
+                        </div>
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="lname">Last Name</label>
+                            <h:inputText class="form-control" value="#{touristController.profile.user.lastname}" a:required="true" />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sms-12 col-sm-12">
+                            <label for="address" class="form-label col-md-4">Address</label>
+                            <h:inputTextarea class="form-control" value="#{touristController.profile.user.address}" a:required="true" />
+                        </div>
+
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="email" class="form-label col-md-4">Email</label>
+                            <h:inputText class="form-control" value="#{touristController.profile.user.email}" a:required="true" />
+                        </div>
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="phone" class="form-label col-md-4">Phone</label>
+                            <h:inputText class="form-control" value="#{touristController.profile.user.phone}" a:required="true" />
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="age" class="form-label col-md-4">Age</label>
+                            <h:inputText class="form-control" value="#{touristController.profile.tourist.age}" a:required="true" />
+                        </div>
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="dob" class="form-label col-md-6">Date of Birth</label>
+                            <h:inputText class="form-control datepicker" value="#{touristController.profile.tourist.dob}" a:required="true" />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="gender" class="form-label col-md-4">Gender</label>
+
+                            <h:inputText class="form-control" value="#{touristController.profile.tourist.gender}" a:required="true" />
+                        </div>
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="nationality" class="form-label col-md-4">Nationality</label>
+                            <h:inputText class="form-control" value="#{touristController.profile.tourist.nationality}" a:required="true" />
+                        </div>
+                    </div>
+
+
+                    <div class="from-group">
+                        <h:commandButton class=" btn btn-primary btn-medium col-sms-6 col-sm-4" value="UPDATE SETTINGS" />
+
+                    </div>
+
+                </div>
+            </h:form>
+        </div>
+        
+        <h:outputScript library="js" name="jquery-1.11.1.min.js" />
+        <h:outputScript library="js" name="jquery.noconflict.js" />
+        <script type="text/javascript">
+            tjq(document).ready(function () {
+                tjq("#profile .edit-profile-btn").click(function (e) {
+                    e.preventDefault();
+                    tjq(".view-profile").fadeOut();
+                    tjq(".edit-profile").fadeIn();
+                });
+
+
+
+            });
+            tjq('a[href="#profile"]').on('shown.bs.tab', function (e) {
+                tjq(".view-profile").show();
+                tjq(".edit-profile").hide();
+            });
+        </script>
+
+    </ui:composition>
+</html>

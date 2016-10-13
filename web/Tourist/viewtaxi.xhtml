@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+    <ui:composition template="/templates/home_template.xhtml">
+        <ui:define name="content">
+            <div class="page-title-container">
+                <div class="container">
+                    <div class="page-title pull-left">
+                        <h2 class="entry-title">Taxi</h2>
+                    </div>
+                    <ul class="breadcrumbs pull-right">
+
+                    </ul>
+                </div>
+            </div>
+
+            <section id="content">
+                <div class="container">
+                    <div id="main">
+
+                        <div class="items-container row add-clearfix image-box style9 col-md-10">
+
+                            <ui:repeat value="#{homeController.allTaxi}" var="taxi">
+                                <div class="col-sms-6 col-sm-6 col-md-4">
+                                    <article class="box">
+                                        <figure>
+
+                                            <a class="hover-effect hotel-overlay" title="" href="hotelModal#{taxi.login.loginid}">
+                                                <c:if test="#{taxi.numCars eq 0}">
+                                                    <h:graphicImage name="No_image_available.jpg" library="images" width="270" height="160" />
+                                                </c:if>
+
+                                                <c:if test="#{taxi.numCars != 0}">
+                                                    <h:graphicImage name="#{taxi.ACar.photo}" width="270" height="160" />
+                                                </c:if>
+
+                                            </a>
+                                        </figure>
+                                        <div class="details">
+                                            <h4 class="box-title">#{taxi.user.firstname} #{taxi.user.lastname}<small>#{taxi.taxi.place}</small></h4>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <div class="modal fade" id="hotelModal#{taxi.login.loginid}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">#{taxi.user.firstname} #{taxi.user.lastname}</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <table class="table table-hover">
+                                                    <tr>
+                                                        <th>Place</th>
+                                                        <td>#{taxi.taxi.place}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Address</th>
+                                                        <td>#{taxi.user.address}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Phone</th>
+                                                        <td>#{taxi.user.phone}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Email</th>
+                                                        <td>#{taxi.user.email}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>No of Vehicles</th>
+                                                        <td>#{taxi.numCars}</td>
+                                                    </tr>
+
+                                                </table>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Ok</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </ui:repeat>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </ui:define>
+    </ui:composition>
+</html>

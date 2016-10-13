@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <ui:composition>
+        <div class="container shortcode">
+            <h1>Feedbacks</h1>
+            <div class="row image-box hotel listing-style1">
+
+                <ui:repeat value="#{adminController.feedbacks}" var="feedback">
+                    <div class="col-sm-6 col-md-3">
+                        <article class="box">
+                            <div class="details">
+                                <h4 class="box-title">#{feedback.feedback.title}<small>#{feedback.type}</small><br/><small>#{feedback.name}</small></h4>
+                                <p class="description">#{feedback.feedback.feedback}</p>
+                            </div>
+                        </article>
+                    </div>
+                </ui:repeat>
+
+            </div>
+        </div>
+    </ui:composition>
+</html>

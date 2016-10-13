@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:composition>
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Included Packages</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="toggle-container box" id="accordion1">
+
+                            <ui:repeat value="#{guideController.myPackages}" var="package" varStatus="idx">
+
+                                <div class="panel style1">
+                                    <h4 class="panel-title">
+                                        <a href="#acc#{idx.index}" data-toggle="collapse" data-parent="#accordion1">#{package.name}</a>
+                                    </h4>
+                                    <div class="panel-collapse collapse in" id="acc#{idx.index}">
+                                        <div class="panel-content">
+                                            <p>#{package.description}</p>
+                                            <p>Date : #{package.date}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </ui:repeat>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Bookings</h3>
+                    </div>
+                    <div class="panel-body">
+                        Panel content
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:composition>
+</html>

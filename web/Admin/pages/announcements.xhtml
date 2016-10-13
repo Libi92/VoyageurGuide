@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <ui:composition>
+        <div class="col-md-8 col-md-offset-2">
+            <h2 class="skin-color">Announcements</h2>
+            <div class="col-md-12">
+                <h:form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="title" class="col-md-4">Title</label>
+                        <div class="col-md-8">
+                            <h:inputText class="form-control" a:placeholder="Title" a:required="true" value="#{adminController.announcements.title}" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="details" class="col-md-4">Details</label>
+                        <div class="col-md-8">
+                            <h:inputTextarea class="form-control" a:placeholder="Details" a:required="true" value="#{adminController.announcements.details}" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-8 col-md-offset-4">
+                            <h:commandButton class="btn btn-success btn-block" value="Send" action="#{adminController.sendAnnouncements}" />
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+
+            <div class="col-md-12">
+                <div class="toggle-container box" id="accordion1">
+
+                    <ui:repeat value="#{adminController.allAnnouncements}" var="announcement" varStatus="id">
+                        
+                    <div class="panel style1">
+                        <h4 class="panel-title">
+                            <a href="#acc#{id.index}" data-toggle="collapse" data-parent="#accordion1">#{announcement.title}</a>
+                        </h4>
+                        <div class="panel-collapse collapse in" id="acc#{id.index}">
+                            <div class="panel-content">
+                                <p>#{announcement.details}</p>
+                            </div><!-- end content -->
+                        </div>
+                    </div>
+
+                    </ui:repeat>
+
+                </div>
+            </div>
+        </div>
+    </ui:composition>
+</html>

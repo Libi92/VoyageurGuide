@@ -1,0 +1,324 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/templates/home_template.xhtml">
+
+        <ui:define name="content">
+            <div id="slideshow">
+            <div class="fullwidthbanner-container">
+                <div class="revolution-slider" style="height: 0; overflow: hidden;">
+                    <ul>    <!-- SLIDE  -->
+                        <!-- Slide1 -->
+                        <li data-transition="zoomin" data-slotamount="7" data-masterspeed="1500">
+                            <!-- MAIN IMAGE -->
+                            <h:graphicImage name="images/slider/slider1.jpg" />
+                            
+                        </li>
+                        
+                        <!-- Slide2 -->
+                        <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1500">
+                            <!-- MAIN IMAGE -->
+                            <h:graphicImage name="images/slider/slider2.jpg" />
+                            
+                        </li>
+                        
+                        <!-- Slide3 -->
+                        <li data-transition="slidedown" data-slotamount="7" data-masterspeed="1500">
+                            <!-- MAIN IMAGE -->
+                            <h:graphicImage name="images/slider/slider3.jpg" />>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            
+        <section id="content">
+            <div class="search-box-wrapper">
+                <div class="search-box container">
+                    
+                    <div class="visible-mobile">
+                        
+                    </div>
+                    
+                    <div class="search-tab-content">
+                       
+                    </div>
+                </div>
+            </div>
+            
+            <div class="destinations section">
+                <div class="container">
+                    <h2>Currency Convertor</h2>
+                    <div class="row image-box style1 add-clearfix">
+                        <div class="col-sms-6 col-sm-6 col-md-3">
+                            <h:form class="form-horizontal">
+                                <label>From</label>
+                                <h:selectOneMenu id="fromCurrency" class="form-control" value="#{homeController.fromCurrency}">
+                                    <f:selectItems value="#{homeController.currencyItems}" />
+                                </h:selectOneMenu>
+                                <h:inputText id="fromValue" class="form-control" value="#{homeController.fromValue}" />
+                                
+                                <label>To</label>
+                                <h:selectOneMenu id="toCurrency" class="form-control" value="#{homeController.toCurrency}">
+                                    <f:selectItems value="#{homeController.currencyItems}" />
+                                </h:selectOneMenu>
+                                <h:inputText id="toValue" class="form-control" value="#{homeController.convertedValue}" disabled="true" />
+                                
+                                <br />
+                                
+                                <h:commandButton class="btn btn-block btn-success" value="Convert">
+                                    <f:ajax execute="fromValue toCurrency fromCurrency" render="toValue" />
+                                </h:commandButton>
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Popuplar Destinations -->
+            <div class="destinations section">
+                <div class="container">
+                    <h2>Popular Destinations</h2>
+                    <div class="row image-box style1 add-clearfix">
+                        <div class="col-sms-6 col-sm-6 col-md-3">
+                            <article class="box">
+                                <figure class="animated" data-animation-type="fadeInDown" data-animation-duration="1">
+                                    <h:graphicImage name="images/270x160/270x160-1.jpg" width="270" height="160" />
+                                    
+                                </figure>
+                                <div class="details">
+                                    <span class="price"><small>FROM</small>Rs.4900</span>
+                                    <h4 class="box-title">Ottappalam<small>Palakkad</small></h4>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-sms-6 col-sm-6 col-md-3">
+                            <article class="box">
+                                <figure class="animated" data-animation-type="fadeInDown" data-animation-duration="1" data-animation-delay="0.3">
+                                    <h:graphicImage name="images/270x160/270x160-2.jpg" width="270" height="160" />
+                                </figure>
+                                <div class="details">
+                                    <span class="price"><small>FROM</small>Rs.17000</span>
+                                    <h4 class="box-title">Kuttnad<small>Alappuzha</small></h4>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-sms-6 col-sm-6 col-md-3">
+                            <article class="box">
+                                <figure class="animated" data-animation-type="fadeInDown" data-animation-duration="1" data-animation-delay="0.6">
+                                    <h:graphicImage name="images/270x160/270x160-3.jpg" width="270" height="160" />
+                                </figure>
+                                <div class="details">
+                                    <span class="price"><small>FROM</small>Rs.1300</span>
+                                    <h4 class="box-title">Kovalam<small>Thiruvanthapuram</small></h4>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-sms-6 col-sm-6 col-md-3">
+                            <article class="box">
+                                <figure class="animated" data-animation-type="fadeInDown" data-animation-duration="1" data-animation-delay="0.9">
+                                    <h:graphicImage name="images/270x160/270x160-4.jpg" width="270" height="160" />
+                                </figure>
+                                <div class="details">
+                                    <span class="price"><small>FROM</small>Rs.2900</span>
+                                    <h4 class="box-title">Thekkadi<small>Idukki</small></h4>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Honeymoon -->
+            <div class="honeymoon section global-map-area promo-box parallax" data-stellar-background-ratio="0.5">
+                <div class="container">
+                    <div class="col-sm-6 content-section description pull-right">
+                        <h1 class="title">Popular Destinations for Honeymoon</h1>
+                        <p>2.	Kerala Honeymoon Package which will take you through an enjoyable journey through honeymoon spots in Kerala and verdant tea gardens, rubber &amp; spice plantations and lovely waterfalls. </p>
+                        <div class="row places image-box style9">
+                            <div class="col-xs-4">
+                                <article class="box">
+                                    <figure>
+                                        <a  title="" class="" data-animation-type="fadeInUp" data-animation-duration="1">
+                                            <h:graphicImage name="images/170x170/170x170-1.jpg" />
+                                        </a>
+                                    </figure>
+                                    <div class="details">
+                                        <h4 class="box-title">Munnar<small>(9 PLACES)</small></h4>
+                                        <a  title="" ></a>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-xs-4">
+                                <article class="box">
+                                    <figure>
+                                        <a  title="" class="" data-animation-type="fadeInUp" data-animation-duration="1" data-animation-delay="0.4">
+                                            <h:graphicImage name="images/170x170/170x170-2.jpg" />
+                                        </a>
+                                    </figure>
+                                    <div class="details">
+                                        <h4 class="box-title">Thiruvananthapuram<small>(90 PLACES)</small></h4>
+                                        <a  title="" ></a>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-xs-4">
+                                <article class="box">
+                                    <figure>
+                                        <a title="" class="" data-animation-type="fadeInUp" data-animation-duration="1" data-animation-delay="0.8">
+                                            <h:graphicImage name="images/170x170/170x170-3.jpg" />
+                                        </a>
+                                    </figure>
+                                    <div class="details">
+                                        <h4 class="box-title">All Around travancore...<small>(990 PLACES)</small></h4>
+                                        <a  title="" class=""></a>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 image-container no-margin">
+                        <h:graphicImage name="images/random/524x540.jpg" a:data-animation-type="fadeInUp" a:data-animation-duration="2" width="524" height="540" />
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Did you Know? section -->
+            <div class="offers section">
+                <div class="container">
+                    <h1 class="text-center">Did you know?</h1>
+                    <p class="col-xs-9 center-block no-float text-center">Kerala, a state on India's tropical Malabar Coast, has nearly 600km of Arabian Sea shoreline. It's known for its palm-lined beaches and its backwaters, a network of canals popular for cruises. Its many upscale seaside resorts include specialists in Ayurvedic treatments. Inland are the Western Ghats, a mountain range whose slopes support tea, coffee and spice plantations as well as abundant native wildlife..</p>
+                    <div class="row image-box style2">
+                        <div class="col-md-6">
+                            <article class="box">
+                                <figure class="animated" data-animation-type="fadeInLeft" data-animation-duration="1">
+                                    <a  title="">
+                                        <h:graphicImage name="images/270x192/270x192-1.jpg" width="270" height="192" />
+                                    </a>
+                                </figure>
+                                <div class="details">
+                                    <h4>Athirappilli-vazhachal</h4>
+                                    <p>A beatiful water fall located in Thrisssur. Having so many exciting things which gives you heavenly experience. </p>
+                                    <a title="" class=""></a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6">
+                            <article class="box">
+                                <figure class="animated" data-animation-type="fadeInLeft" data-animation-duration="1" data-animation-delay="0.4">
+                                    <a title="">
+                                        <h:graphicImage name="images/270x192/270x192-2.jpg" width="270" height="192" />
+                                    </a>
+                                </figure>
+                                <div class="details">
+                                    <h4>Athirappilli-vazhachal</h4>
+                                    <p>A beatiful water fall located in Thrisssur. Having so many exciting things which gives you heavenly experience.</p>
+                                    <a title="" class=""></a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6">
+                            <article class="box">
+                                <figure class="animated" data-animation-type="fadeInLeft" data-animation-duration="1">
+                                    <a title="">
+                                        <h:graphicImage name="images/270x192/270x192-3.jpg" width="270" height="192" />
+                                    </a>
+                                </figure>
+                                <div class="details">
+                                    <h4>Nelliyampathy</h4>
+                                    <p>located in Palakkad district. have so many beatiful locatins like gardens, farms etc...</p>
+                                    <a title="" class=""></a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6">
+                            <article class="box">
+                                <figure class="animated" data-animation-type="fadeInLeft" data-animation-duration="1" data-animation-delay="0.4">
+                                    <a title="">
+                                        <h:graphicImage name="images/270x192/270x192-4.jpg" width="270" height="192" />
+                                    </a>
+                                </figure>
+                                <div class="details">
+                                    <h4>Marari Beach Resort</h4>
+                                    <p>Located in alappuzha district. Beach side resort contains ayurvedic treatments also...</p>
+                                    <a title="" class=""></a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Features section -->
+            <div class="features section global-map-area parallax" data-stellar-background-ratio="0.5">
+                <div class="container">
+                    <div class="row image-box style7">
+                        <div class="col-sms-6 col-sm-6 col-md-3">
+                            <article class="box">
+                                <figure class="middle-block">
+                                    <h:graphicImage name="images/300x120/300x120-1.jpg" class="middle-item" />
+                                    <span class="opacity-wrapper"></span>
+                                </figure>
+                                <div class="details">
+                                    <h4>Best Price Guarantee</h4>
+                                    <p>
+                                       We guarantee you best prices and best comforts. 
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-sms-6 col-sm-6 col-md-3">
+                             <article class="box">
+                                <figure class="middle-block">
+                                    <h:graphicImage name="images/300x120/300x120-2.jpg" class="middle-item" />
+                                    <span class="opacity-wrapper"></span>
+                                </figure>
+                                <div class="details">
+                                    <h4><a >Travel Arrangement</a></h4>
+                                    <p>
+                                       You can create your own packages and arrange a journey completely through Let's Go.
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-sms-6 col-sm-6 col-md-3">
+                             <article class="box">
+                                <figure class="middle-block">
+                                    <h:graphicImage name="images/300x120/300x120-3.jpg" class="middle-item" />
+                                    <span class="opacity-wrapper"></span>
+                                </figure>
+                                <div class="details">
+                                    <h4><a >Why Chose Us</a></h4>
+                                    <p>
+                                        We esure you the complete comfort and less prices.  
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-sms-6 col-sm-6 col-md-3">
+                             <article class="box">
+                                <figure class="middle-block">
+                                    <h:graphicImage name="images/300x120/300x120-4.jpg" class="middle-item" />
+                                    <span class="opacity-wrapper"></span>
+                                </figure>
+                                <div class="details">
+                                    <h4><a>Need Help?</a></h4>
+                                    <p>
+                                       To need help contact us ... call 9061655736.
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </ui:define>
+    </ui:composition>
+
+</html>
+

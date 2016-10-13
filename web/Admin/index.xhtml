@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>
+            <ui:insert name="title">
+                Voyageur Guide
+            </ui:insert>
+        </title>
+
+        <ui:insert name="header">
+            <ui:include src="/templates/header.xhtml"/>
+        </ui:insert>
+
+    </h:head>
+    <h:body class="dashboard style1">
+        <div id="page-wrapper">
+            <header id="header" class="navbar-static-top">
+                <a href="#mobile-menu-01" data-toggle="collapse" class="mobile-menu-toggle blue-bg">Mobile Menu Toggle</a>
+                <div class="container">
+                    <h1 class="logo navbar-brand">
+                        <a href="index.html" title="Travelo - home">
+                            <h:graphicImage library="images" name="logo2.png" alt="Travelo HTML5 Template" />
+                            <!--<img src="../images/logo2.png" alt="Travelo HTML5 Template" />-->
+                        </a>
+                    </h1>
+                    <ul class="quick-menu pull-right hidden-mobile">
+                        <li class="ribbon menu-color-blue">
+                            <a href="#">Admin</a>
+                            <ul class="menu mini uppercase">
+                                <li><a href="#dashboard" class="location-reload">Dashboard</a></li>
+                                <li><a href="#profile" class="location-reload">Places</a></li>
+                                <li><a href="#booking" class="location-reload">Packages</a></li>
+                                <li><a href="#userphotos" class="location-reload">User Photos</a></li>
+                                <li><a href="#wishlist" class="location-reload">Feedbacks</a></li>
+                                <li><a href="#travel-stories" class="location-reload">Announcements</a></li>
+                                <!--<li><a href="#settings" class="location-reload">Settings</a></li>-->
+                                <li>
+                                    <h:form>
+                                        <h:commandLink value="Sign Out" action="#{loginController.doLogout}" />
+                                    </h:form>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+
+            <section id="content" class="">
+                <div class="container">
+                    <div class="tab-container full-width-style arrow-left dashboard">
+                        <ul class="tabs">
+                            <li class="active"><a data-toggle="tab" href="#dashboard"><i class="soap-icon-anchor circle"></i>Dashboard</a></li>
+                            <li class="place-link"><a data-toggle="tab" href="#profile"><i class="soap-icon-user circle"></i>Places</a></li>
+                            <li class=""><a data-toggle="tab" href="#booking"><i class="soap-icon-businessbag circle"></i>Packages</a></li>
+                            <li class=""><a data-toggle="tab" href="#userphotos"><i class="soap-icon-wishlist circle"></i>User Photos</a></li>
+                            <li class=""><a data-toggle="tab" href="#wishlist"><i class="soap-icon-wishlist circle"></i>Feedbacks</a></li>
+                            <li class=""><a data-toggle="tab" href="#travel-stories"><i class="soap-icon-conference circle"></i>Announcements</a></li>
+                            <!--<li class=""><a data-toggle="tab" href="#settings"><i class="soap-icon-settings circle"></i>Settings</a></li>-->
+                        </ul>
+                        <div class="tab-content">
+                            <div id="dashboard" class="tab-pane fade in active">
+                                <h1 class="no-margin skin-color">Hi Admin, Welcome to Let's Go!</h1>
+                                <p>All your jobs will appear here and you’ll be able to manage everything!</p>
+                                <br />
+                                <div class="row block">
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="fact blue">
+                                            <div class="numbers counters-box">
+                                                <dl>
+                                                    <dt class="display-counter" data-value="3200">0</dt>
+                                                    <dd>Hotels to Stay</dd>
+                                                </dl>
+                                                <i class="icon soap-icon-hotel"></i>
+                                            </div>
+                                            <div class="description">
+                                                <i class="icon soap-icon-longarrow-right"></i>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+
+                                        <div class="fact yellow">
+                                            <div class="numbers counters-box">
+                                                <dl>
+                                                    <dt class="display-counter" data-value="20000">0</dt>
+                                                    <dd>Satisfied Customers</dd>
+                                                </dl>
+                                                <i class="icon soap-icon-plane"></i>
+                                            </div>
+                                            <div class="description">
+                                                <i class="icon soap-icon-longarrow-right"></i>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+
+                                        <div class="fact red">
+                                            <div class="numbers counters-box">
+                                                <dl>
+                                                    <dt class="display-counter" data-value="3250">0</dt>
+                                                    <dd>Taxies</dd>
+                                                </dl>
+                                                <i class="icon soap-icon-car"></i>
+                                            </div>
+                                            <div class="description">
+                                                <i class="icon soap-icon-longarrow-right"></i>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+
+                                        <div class="fact green">
+                                            <div class="numbers counters-box">
+                                                <dl>
+                                                    <dt class="display-counter" data-value="1570">0</dt>
+                                                    <dd>House Boats</dd>
+                                                </dl>
+                                                <i class="icon soap-icon-cruise flip-effect"></i>
+                                            </div>
+                                            <div class="description">
+                                                <i class="icon soap-icon-longarrow-right"></i>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <ui:insert name="newreg">
+                                    <ui:include src="pages/newregistrations.xhtml" />
+                                </ui:insert>
+
+                                <div class="row block">
+                                    <div class="col-md-6 notifications">
+
+                                    </div>
+                                    <div class="col-md-6">
+
+                                    </div>
+                                </div>
+                                <hr/>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h4>Benefits of Let's Go Account</h4>
+                                        <ul class="benefits triangle hover">
+                                            <li><a href="#">Faster bookings with lesser clicks</a></li>
+                                            <li><a href="#">Track travel history &amp; manage bookings</a></li>
+                                            <li class="active"><a href="#">Manage profile &amp; personalize experience</a></li>
+                                            <li><a href="#">Receive alerts &amp; recommendations</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4 previous-bookings image-box style14">
+                                        <h:graphicImage name="images/170x170/kidu.jpg" width="220" height="130" />
+                                        <!--<img src="../images/170x170/kidu.jpg" alt="" width="220" height="130" />-->
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h4>Need Let's Go Help?</h4>
+                                        <div class="contact-box">
+                                            <p>We would be more than happy to help you. Our team advisor are 24/7 at your service to help you.</p>
+                                            <address class="contact-details">
+                                                <span class="contact-phone"><i class="soap-icon-phone"></i> 9061655736-HELLO</span>
+                                                <br/>
+                                                <a class="contact-email" href="#">letsgotours@gmail.com</a>
+                                            </address>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="profile" class="tab-pane fade">
+                                <ui:insert name="addplace">
+                                    <ui:include src="pages/addplace.xhtml" />
+                                </ui:insert>
+                                
+                                <ui:insert name="viewplaces">
+                                    <ui:include src="pages/viewplaces.xhtml" />
+                                </ui:insert>
+
+                            </div>
+                            <div id="booking" class="tab-pane fade">
+                                
+                                <ui:insert name="viewplaces">
+                                    <ui:include src="pages/addpackage.xhtml" />
+                                </ui:insert>
+                                
+                                <ui:insert name="viewplaces">
+                                    <ui:include src="pages/viewpackage.xhtml" />
+                                </ui:insert>
+                                
+                            </div>
+                            <div id="userphotos" class="tab-pane fade">
+                                <ui:insert name="userphoto">
+                                    <ui:include src="pages/userphotos.xhtml" />
+                                </ui:insert>
+                            </div>
+                            <div id="wishlist" class="tab-pane fade">
+                                <ui:insert name="viewplaces">
+                                    <ui:include src="pages/feedbacks.xhtml" />
+                                </ui:insert>
+                            </div>
+                            <div id="travel-stories" class="tab-pane fade">
+                                <ui:insert name="viewplaces">
+                                    <ui:include src="pages/announcements.xhtml" />
+                                </ui:insert>
+                            </div>
+                            <div id="settings" class="tab-pane fade">
+                                <!--<?php include 'pages/settings.php'; ?>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <footer id="footer">
+                <div class="footer-wrapper">
+                    <div class="container">
+                        <div class="main-menu tab-container full-width-style clearfix">
+                            <div class="tab-content pull-right">
+                                <nav id="main-menu" role="navigation" class="hidden-mobile inline-block">
+                                    <ul class="menu">
+                                    </ul>
+                                </nav>
+                                <div class="copyright">
+                                    <p>© 2015 Voyageur</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div id="userModel" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+                        <h4 class="modal-title">User Details</h4>
+                    </div>
+                    <div id="modal_body" class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ui:insert name="footer">
+            <ui:include src="/templates/footer.xhtml" />
+        </ui:insert>
+
+        <script type="text/javascript">
+            enableChaser = 0;
+        </script>
+
+        <script type="text/javascript">
+            tjq(document).ready(function () {
+                tjq("#profile .edit-profile-btn").click(function (e) {
+                    e.preventDefault();
+                    tjq(".view-profile").fadeOut();
+                    tjq(".edit-profile").fadeIn();
+                });
+
+
+            });
+            tjq('a[href="#profile"]').on('shown.bs.tab', function (e) {
+                tjq(".view-profile").show();
+                tjq(".edit-profile").hide();
+            });
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQOZHmyTsxtQCbIs4evZxV4eWG0HT8YP0"></script>
+        <h:outputScript library="js" name="admin.js" />
+
+    </h:body>
+</html>

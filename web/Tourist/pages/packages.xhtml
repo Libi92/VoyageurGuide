@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition>
+
+            <section id="content">
+                <div class="container">
+                    <div id="main">
+                        <div class="col-md-12">
+                            <h3 class="skin-color">Packages</h3>
+
+
+                            <div class="row block">
+                                
+                                <ui:repeat value="#{homeController.packages}" var="package">
+
+
+                                <div class="col-sm-3">
+                                    <div class="pricing-table white box">
+                                        <div class="header clearfix">
+                                            <i class="soap-icon-user circle green-color"></i>
+                                            <h4 class="box-title">
+                                                <span>#{package.model_package.name}
+                                                    <small>#{package.model_package.date} (#{package.model_package.days})
+                                                        <br/>People : #{package.model_package.maxno}
+                                                    </small>
+                                                </span>
+                                                <span>#{package.model_package.entries} entries rem</span>
+                                            </h4>
+                                            <span class="price"><small>price</small>₹#{package.model_package.price}</span>
+                                        </div>
+                                        <p class="description">
+                                            #{package.model_package.description}
+                                        </p>
+                                        <ul class="check-square features">
+                                            
+                                            <ui:repeat value="#{package.places}" var="place">
+                                                
+                                                <li>#{place.place}</li>
+                                            
+                                            </ui:repeat>
+                                            
+                                        </ul>
+
+                                        <p>Hotel : </p>
+                                        <ul class="check-square features">
+                                            
+                                            <ui:repeat value="#{package.hotels}" var="hotel">
+                                                
+                                                <li>#{hotel.firstname}</li>
+                                            
+                                            </ui:repeat>
+                                        </ul>
+
+                                        <p>Guide : </p>
+                                        <ul class="check-square features">
+                                            
+                                            <ui:repeat value="#{package.guides}" var="guide">
+                                            
+                                                <li>#{guide.firstname}</li>
+                                            
+                                            </ui:repeat>
+                                        </ul>
+
+                                        <p>Taxi : </p>
+                                        <ul class="check-square features">
+                                            
+                                            <ui:repeat value="#{package.taxis}" var="taxi">
+                                                
+                                                <li>#{taxi.firstname}</li>
+                                            
+                                            </ui:repeat>
+                                            
+                                        </ul>
+                                        <!-- <button class="btn-medium uppercase full-width">select this plan</button> -->
+                                    </div>
+                                </div>
+
+                                </ui:repeat>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+    </ui:composition>
+</html>

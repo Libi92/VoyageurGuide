@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <ui:composition>
+        <div class="view-profile">
+            <article class="image-box style2 box innerstyle personal-details">
+                <figure>
+                    <a title="" href="#">
+                        <img width="270" height="263" alt="" src="" />
+                    </a>
+                </figure>
+                <div class="details">
+                    <a href="#" class="button btn-mini pull-right edit-profile-btn">EDIT PROFILE</a>
+                    <h2 class="box-title fullname">#{hotelController.profile.user.firstname}</h2>
+                    <dl class="term-description">
+                        <dt>user name:</dt><dd>#{hotelController.profile.login.username}</dd>
+                        <dt>first name:</dt><dd>#{hotelController.profile.user.firstname}</dd>
+                        <dt>last name:</dt><dd>#{hotelController.profile.user.lastname}</dd>
+                        <dt>Address:</dt><dd>#{hotelController.profile.user.address}</dd>
+                        <dt>phone number:</dt><dd>#{hotelController.profile.user.phone}</dd>
+                        <dt>Email:</dt><dd>#{hotelController.profile.user.email}</dd>
+                        <dt>Place:</dt><dd>#{hotelController.profile.hotel.place}</dd>
+                        <dt>Nearest City:</dt><dd>#{hotelController.profile.hotel.nearestcity}</dd>
+                        <dt>Rooms:</dt><dd>#{hotelController.profile.hotel.rooms}</dd>
+                        <!-- <dt>Rent:</dt><dd><?//php echo $rent ?></dd>-->
+                    </dl>
+                </div>
+            </article>
+            <hr/>
+
+            <div class="row block">
+                <div class="col-md-6 notifications">
+
+                </div>
+                <div class="col-md-6">
+
+                </div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Benefits of Let's Go Account</h4>
+                    <ul class="benefits triangle hover">
+                        <li><a href="#">Faster bookings with lesser clicks</a></li>
+                        <li><a href="#">Track travel history &amp; manage bookings</a></li>
+                        <li class="active"><a href="#">Manage profile &amp; personalize experience</a></li>
+                        <li><a href="#">Receive alerts &amp; recommendations</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 previous-bookings image-box style14">
+                    <h:graphicImage name="images/170x170/kidu.jpg" width="220" height="130" />
+                    
+                </div>
+                <div class="col-md-4">
+                    <h4>Need Let's Go Help?</h4>
+                    <div class="contact-box">
+                        <p>We would be more than happy to help you. Our team advisor are 24/7 at your service to help you.</p>
+                        <address class="contact-details">
+                            <span class="contact-phone"><i class="soap-icon-phone"></i> 9061655736-HELLO</span>
+                            <br/>
+                            <a class="contact-email" href="#">letsgotours.kvm@gmail.com</a>
+                        </address>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="edit-profile">
+            <h:form>
+                <h2>Personal Details</h2>
+                <div class="col-sm-9 no-padding no-float">
+                    <div class="row form-group">
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="fname">First Name</label>
+                            <h:inputText class="form-control" value="#{hotelController.profile.user.firstname}" a:required="true" />
+                        </div>
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="lname">Last Name</label>
+                            <h:inputText class="form-control" value="#{hotelController.profile.user.lastname}" a:required="true" />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sms-12 col-sm-12">
+                            <label for="address" class="form-label col-md-4">Address</label>
+                            <h:inputTextarea class="form-control" value="#{hotelController.profile.user.address}" a:required="true" />
+                        </div>
+
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="email" class="form-label col-md-4">Email</label>
+                            <h:inputText class="form-control" value="#{hotelController.profile.user.email}" a:required="true" />
+                        </div>
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="phone" class="form-label col-md-4">Phone</label>
+                            <h:inputText class="form-control" value="#{hotelController.profile.user.phone}" a:required="true" />
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="place" class="form-label col-md-4">Place</label>
+                            <h:inputText class="form-control" value="#{hotelController.profile.hotel.place}" a:required="true" />
+                        </div>
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="nearestcity" class="form-label col-md-6">Nearest City</label>
+                            <h:inputText class="form-control" value="#{hotelController.profile.hotel.nearestcity}" a:required="true" />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="rooms" class="form-label col-md-4">Rooms</label>
+                            <h:inputText class="form-control" value="#{hotelController.profile.hotel.rooms}" a:required="true" />
+                        </div>
+
+                    </div>
+
+                    
+                    <div class="row form-group">
+                        <table class="table">
+                            <tr>
+                                <th>Type</th>
+                                <th>No of rooms</th>
+                                <th>Rent</th>
+                            </tr>
+                            <tr>
+                                <td>AC-SINGLE</td>
+                                <td><h:inputText class="form-control" value="#{hotelController.profile.ACSingleRoomsCount}" /></td>
+                                <td><h:inputText class="form-control" value="#{hotelController.profile.ACSingleRent}" /></td>
+                            </tr>
+                            <tr>
+                                <td>NON-AC-SINGLE</td>
+                                <td><h:inputText class="form-control" value="#{hotelController.profile.nonACSingleRoomsCount}" /></td>
+                                <td><h:inputText class="form-control" value="#{hotelController.profile.nonACSingleRent}" /></td>
+                            </tr>
+                            <tr>
+                                <td>AC-DOUBLE</td>
+                                <td><h:inputText class="form-control" value="#{hotelController.profile.ACDoubleRoomsCount}" /></td>
+                                <td><h:inputText class="form-control" value="#{hotelController.profile.ACDoubleRent}" /></td>
+                            </tr>
+                            <tr>
+                                <td>NON-AC-DOUBLE</td>
+                                <td><h:inputText class="form-control" value="#{hotelController.profile.nonACDoubleRoomsCount}" /></td>
+                                <td><h:inputText class="form-control" value="#{hotelController.profile.nonACDoubleRent}" /></td>
+                            </tr>
+                            <tr>
+                                <td>DORMETRY</td>
+                                <td><h:inputText class="form-control" value="#{hotelController.profile.dormetayCount}" /></td>
+                                <td><h:inputText class="form-control" value="#{hotelController.profile.dormetryRent}" /></td>
+                            </tr>
+                        </table>
+                    </div>
+
+
+                    <div class="from-group">
+                        <h:commandButton class="btn btn-success btn-medium col-sms-6 col-sm-4" value="UPDATE SETTINGS" />
+                    </div>
+
+                </div>
+            </h:form>
+        </div>
+    </ui:composition>
+</html>

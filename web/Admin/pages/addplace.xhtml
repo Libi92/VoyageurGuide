@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition>
+        <div class="container">
+            <h2 class="skin-color">Add New Place</h2>
+            <h:form enctype="multipart/form-data" role="form" class="form-horizontal">
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="place">Place</label>
+                        <h:inputText class="form-control" a:placeholder="Place" a:required="true" value="#{adminController.place.place}" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <h:inputTextarea class="form-control" a:placeholder="Description" a:required="true" value="#{adminController.place.description}" />
+                    </div>
+
+                    <div class="form-group animated fadeInUp">
+                        <label for="district" class="form-label col-md-4">District</label>
+                        <div class="col-md-8">
+
+                            <h:selectOneMenu class="form-control" value="#{adminController.place.district}">
+                                <f:selectItems value="#{adminController.districts}" />
+                                <f:ajax listener="#{adminController.setTaluk}" render="taluk" />
+                            </h:selectOneMenu>
+                        </div>
+                    </div>
+
+                    <div class="form-group animated fadeInUp">
+                        <label for="taluk" class="form-label col-md-4">Taluk</label>
+                        <div class="col-md-8">
+                            <h:panelGroup id="taluk">
+                                <h:selectOneMenu class="form-control" rendered="#{not empty adminController.taluks}" value="#{adminController.place.taluk}">
+                                    <f:selectItems value="#{adminController.taluks}" />
+                                </h:selectOneMenu>
+                            </h:panelGroup>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="images">Images</label>
+                        <div class="col-md-10">
+                            <h:inputFile class="form-control" a:required="true" value="#{adminController.file}" />
+                            
+                        </div>
+                        <div class="col-md-2">
+                            <button id="btn_addimage" class="btn btn-success btn-block"><i class="fa fa-plus-circle"></i></button>
+                        </div>
+                        <div id="new_image_group"></div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <h:commandButton class="btn btn-success btn-block" value="Add" action="#{adminController.addPlace}" />                    </div>
+                </div>
+
+                <div class="col-md-offset-1 col-md-5">
+                    <div class="form-group animated fadeInUp">
+                        <label for="account" class="form-label col-md-4">Location</label>
+                        <h:inputHidden value="#{adminController.place.latitude}" a:required="true" />
+                        <h:inputHidden value="#{adminController.place.longitude}" a:required="true" />
+                        
+                    </div>
+
+                    <div class="form-group animated fadeInUp">
+                        <div id="map-canvas"></div>
+                    </div>
+                </div>
+
+            </h:form>
+        </div>
+    </ui:composition>
+</html>

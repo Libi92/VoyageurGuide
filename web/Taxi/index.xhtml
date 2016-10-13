@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>
+            <ui:insert name="title">
+                Voyageur Guide
+            </ui:insert>
+        </title>
+
+        <ui:insert name="header">
+            <ui:include src="/templates/header.xhtml"/>
+        </ui:insert>
+    </h:head>
+    <h:body class="dashboard style1">
+        <div id="page-wrapper">
+            <header id="header" class="navbar-static-top">
+                <a href="#mobile-menu-01" data-toggle="collapse" class="mobile-menu-toggle blue-bg">Mobile Menu Toggle</a>
+                <div class="container">
+                    <h1 class="logo navbar-brand">
+                        <a href="index.html" title="Travelo - home">
+                            <h:graphicImage name="images/logo2.png" />
+                        </a>
+                    </h1>
+                    <ul class="quick-menu pull-right hidden-mobile">
+                        <li class="ribbon menu-color-blue">
+                            <a href="#">#{taxiController.username}</a>
+                            <ul class="menu mini uppercase">
+                                <li><a href="dashboard2.html#dashboard" class="location-reload">Dashboard</a></li>
+                                <li><a href="dashboard2.html#profile" class="location-reload">Profile</a></li>
+                                <li><a href="dashboard2.html#booking" class="location-reload">Bookings</a></li>
+                                <li><a href="dashboard2.html#wishlist" class="location-reload">Cars</a></li>
+                                <li><a href="dashboard2.html#requests" class="location-reload">travel stories</a></li>
+                                <li><a href="dashboard1.html#travel-stories" class="location-reload">Feedbacks</a></li>
+                                <li><a href="dashboard2.html#settings" class="location-reload">Settings</a></li>
+                                <li><a href="logout.php">Signout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </header>
+
+            <section id="content" class="">
+                <div class="container">
+                    <div class="tab-container full-width-style arrow-left dashboard">
+                        <ul class="tabs">
+                            <li class="active"><a data-toggle="tab" href="#dashboard"><i class="soap-icon-anchor circle"></i>Dashboard</a></li>
+                            <li class=""><a data-toggle="tab" href="#profile"><i class="soap-icon-user circle"></i>Profile</a></li>
+                            <li class=""><a data-toggle="tab" href="#booking"><i class="soap-icon-businessbag circle"></i>Booking</a></li>
+                            <li class=""><a data-toggle="tab" href="#wishlist"><i class="soap-icon-wishlist circle"></i>Cars</a></li>
+                            <li class=""><a data-toggle="tab" href="#requests"><i class="soap-icon-conference circle"></i>Requests</a></li>
+                            <li class=""><a data-toggle="tab" href="#feedback"><i class="soap-icon-conference circle"></i>Feedbacks</a></li>
+                            <li class=""><a data-toggle="tab" href="#settings"><i class="soap-icon-settings circle"></i>Settings</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="dashboard" class="tab-pane fade in active">
+                                <h1 class="no-margin skin-color">Hi #{taxiController.username}, Welcome to Let's Go!</h1>
+                                <p>All your trips booked with us will appear here and you’ll be able to manage everything!</p>
+                                <br />
+                                <div class="row block">
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="fact blue">
+                                            <div class="numbers counters-box">
+                                                <dl>
+                                                    <dt class="display-counter" data-value="3200">0</dt>
+                                                    <dd>Hotels to Stay</dd>
+                                                </dl>
+                                                <i class="icon soap-icon-hotel"></i>
+                                            </div>
+                                            <div class="description">
+                                                <i class="icon soap-icon-longarrow-right"></i>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+
+                                        <div class="fact yellow">
+                                            <div class="numbers counters-box">
+                                                <dl>
+                                                    <dt class="display-counter" data-value="20000">0</dt>
+                                                    <dd>Satisfied Customers</dd>
+                                                </dl>
+                                                <i class="icon soap-icon-plane"></i>
+                                            </div>
+                                            <div class="description">
+                                                <i class="icon soap-icon-longarrow-right"></i>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+
+                                        <div class="fact red">
+                                            <div class="numbers counters-box">
+                                                <dl>
+                                                    <dt class="display-counter" data-value="3250">0</dt>
+                                                    <dd>Taxies</dd>
+                                                </dl>
+                                                <i class="icon soap-icon-car"></i>
+                                            </div>
+                                            <div class="description">
+                                                <i class="icon soap-icon-longarrow-right"></i>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+
+                                        <div class="fact green">
+                                            <div class="numbers counters-box">
+                                                <dl>
+                                                    <dt class="display-counter" data-value="1570">0</dt>
+                                                    <dd>House Boats</dd>
+                                                </dl>
+                                                <i class="icon soap-icon-cruise flip-effect"></i>
+                                            </div>
+                                            <div class="description">
+                                                <i class="icon soap-icon-longarrow-right"></i>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <ui:insert name="activity">
+                                        <ui:include src="pages/activity.xhtml" />
+                                    </ui:insert>
+                                    
+                                    <hr/>
+                                    <div class="row block">
+                                        <div class="col-md-6 notifications">
+
+                                        </div>
+                                        <div class="col-md-6">
+
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <h4>Benefits of Let's Go Account</h4>
+                                            <ul class="benefits triangle hover">
+                                                <li><a href="#">Faster bookings with lesser clicks</a></li>
+                                                <li><a href="#">Track travel history &amp; manage bookings</a></li>
+                                                <li class="active"><a href="#">Manage profile &amp; personalize experience</a></li>
+                                                <li><a href="#">Receive alerts &amp; recommendations</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4 previous-bookings image-box style14">
+                                            <h:graphicImage name="images/170x170/kidu.jpg" width="220" height="130" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h4>Need Let's Go Help?</h4>
+                                            <div class="contact-box">
+                                                <p>We would be more than happy to help you. Our team advisor are 24/7 at your service to help you.</p>
+                                                <address class="contact-details">
+                                                    <span class="contact-phone"><i class="soap-icon-phone"></i> 9061655736-HELLO</span>
+                                                    <br/>
+                                                    <a class="contact-email" href="#">letsgotours.kvm@gmail.com</a>
+                                                </address>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="profile" class="tab-pane fade">
+                                
+                                <ui:insert name="profile">
+                                    <ui:include src="pages/profile.xhtml" />
+                                </ui:insert>
+                                
+                            </div>
+                            <div id="booking" class="tab-pane fade">
+                                <?php include 'pages/bookings.php'; ?>
+
+                            </div>
+                            <div id="wishlist" class="tab-pane fade">
+                                <?php 
+
+                                include 'pages/cars.php';
+                                ?>
+                            </div>
+
+                            <div id="requests" class="tab-pane fade">
+                                <?php 
+
+                                include 'pages/requests.php';
+                                ?>
+                            </div>
+
+                            <div id="feedback" class="tab-pane fade">
+                                <ui:insert name="feedback">
+                                    <ui:include src="pages/feedback.xhtml" />
+                                </ui:insert>
+                            </div>
+
+                            <div id="settings" class="tab-pane fade">
+                                <ui:insert name="settings">
+                                    <ui:include src="pages/settings.xhtml" />
+                                </ui:insert>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <footer id="footer">
+                <div class="footer-wrapper">
+                    <div class="container">
+                        <div class="main-menu tab-container full-width-style clearfix">
+                            <div class="tab-content pull-right">
+                                <nav id="main-menu" role="navigation" class="hidden-mobile inline-block">
+                                    <ul class="menu">
+                                    </ul>
+
+                                </nav>
+                                <div class="copyright">
+                                    <p>© 2015 Let's Go</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Javascript -->
+        <ui:insert name="footer">
+            <ui:include src="/templates/footer.xhtml" />
+        </ui:insert>
+
+        <script type="text/javascript">
+            enableChaser = 0;
+        </script>
+
+        
+        <script type="text/javascript">
+            tjq(document).ready(function() {
+                tjq("#profile .edit-profile-btn").click(function(e) {
+                    e.preventDefault();
+                    tjq(".view-profile").fadeOut();
+                    tjq(".edit-profile").fadeIn();
+                });
+
+
+
+            });
+            tjq('a[href="#profile"]').on('shown.bs.tab', function(e) {
+                tjq(".view-profile").show();
+                tjq(".edit-profile").hide();
+            });
+        </script>
+    </h:body>
+</html>

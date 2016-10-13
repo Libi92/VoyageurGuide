@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+    <ui:composition>
+        <div class="view-profile">
+            <article class="image-box style2 box innerstyle personal-details">
+                <figure>
+                    <a title="" href="#">
+                        <h:graphicImage name="#{taxiController.profile.taxi.license}" height="263" width="270" />
+                    </a>
+                </figure>
+                <div class="details">
+                    <a href="#" class="button btn-mini pull-right edit-profile-btn">EDIT PROFILE</a>
+                    <h2 class="box-title fullname">#{taxiController.profile.user.firstname} #{taxiController.profile.user.lastname}</h2>
+                    <dl class="term-description">
+                        <dt>user name:</dt><dd>#{taxiController.profile.login.username}</dd>
+                        <dt>first name:</dt><dd>#{taxiController.profile.user.firstname}</dd>
+                        <dt>last name:</dt><dd>#{taxiController.profile.user.lastname}</dd>
+                        <dt>Address:</dt><dd>#{taxiController.profile.user.address}</dd>
+                        <dt>phone number:</dt><dd>#{taxiController.profile.user.phone}</dd>
+                        <dt>Email:</dt><dd>#{taxiController.profile.user.email}</dd>
+                        <dt>Place:</dt><dd>#{taxiController.profile.taxi.place}</dd>
+                        <dt>Owner:</dt><dd>#{taxiController.profile.taxi.owner}</dd>
+                        <dt>Owner Contact:</dt><dd>#{taxiController.profile.taxi.ownercontact}</dd>
+                        <dt>No of Vehicles:</dt><dd>#{taxiController.profile.numCars}</dd>
+                    </dl>
+                </div>
+            </article>
+            <hr/>
+
+            <div class="row block">
+                <div class="col-md-6 notifications">
+
+                </div>
+                <div class="col-md-6">
+
+                </div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Benefits of Let's Go Account</h4>
+                    <ul class="benefits triangle hover">
+                        <li><a href="#">Faster bookings with lesser clicks</a></li>
+                        <li><a href="#">Track travel history &amp; manage bookings</a></li>
+                        <li class="active"><a href="#">Manage profile &amp; personalize experience</a></li>
+                        <li><a href="#">Receive alerts &amp; recommendations</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 previous-bookings image-box style14">
+                    <h:graphicImage name="images/170x170/kidu.jpg" width="220" height="130" />
+
+                </div>
+                <div class="col-md-4">
+                    <h4>Need Let's Go Help?</h4>
+                    <div class="contact-box">
+                        <p>We would be more than happy to help you. Our team advisor are 24/7 at your service to help you.</p>
+                        <address class="contact-details">
+                            <span class="contact-phone"><i class="soap-icon-phone"></i> 9061655736-HELLO</span>
+                            <br/>
+                            <a class="contact-email" href="#">letsgotours.kvm@gmail.com</a>
+                        </address>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="edit-profile">
+            <h:form class="edit-profile-form">
+                <h2>Personal Details</h2>
+                <div class="col-sm-9 no-padding no-float">
+                    <div class="row form-group">
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="fname">First Name</label>
+                            <h:inputText class="form-control" value="#{taxiController.profile.user.firstname}" a:required="true" />
+                        </div>
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="lname">Last Name</label>
+                            <h:inputText class="form-control" value="#{taxiController.profile.user.lastname}" a:required="true" />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sms-12 col-sm-12">
+                            <label for="address" class="form-label col-md-4">Address</label>
+                            <h:inputTextarea class="form-control" value="#{taxiController.profile.user.address}" a:required="true" />
+                        </div>
+
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="email" class="form-label col-md-4">Email</label>
+                            <h:inputText class="form-control" value="#{taxiController.profile.user.email}" a:required="true" />
+                        </div>
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="phone" class="form-label col-md-4">Phone</label>
+                            <h:inputText class="form-control" value="#{taxiController.profile.user.phone}" a:required="true" />
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="place" class="form-label col-md-4">Place</label>
+                            <h:inputText class="form-control" value="#{taxiController.profile.user.phone}" a:required="true" />
+                        </div>
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="owner" class="form-label col-md-6">Owner</label>
+                            <h:inputText class="form-control" value="#{taxiController.profile.taxi.owner}" a:required="true" />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="ownercontact" class="form-label col-md-4">Owner Contact</label>
+                            <h:inputText class="form-control" value="#{taxiController.profile.taxi.ownercontact}" a:required="true" />
+                        </div>
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="contact" class="form-label col-md-4">Contact</label>
+                            <h:inputText class="form-control" value="#{taxiController.profile.user.phone}" a:required="true" />
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-sms-6 col-sm-6">
+                            <label for="vehicles" class="form-label col-md-4">No Of Vehicles</label>
+                            <h:inputText class="form-control" value="#{taxiController.profile.numCars}" a:required="true" />
+                        </div>
+
+                    </div>
+
+
+                    <div class="from-group">
+                        <h:commandButton class="btn-medium col-sms-6 col-sm-4" value="UPDATE SETTINGS" />
+
+                    </div>
+
+                </div>
+            </h:form>
+        </div>
+
+    </ui:composition>
+</html>

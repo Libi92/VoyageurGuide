@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+    <ui:composition>
+        <h2>Your Bookng Statistics!</h2>
+        <div class="booking-history">
+
+            <ui:repeat value="#{guideController.myBookings}" var="booking">
+
+                <div class="booking-info clearfix">
+                    <div class="date">
+                        <label class="month">#{booking.calander.month}</label>
+                        <label class="date">#{booking.calander.day}</label>
+                        <label class="day">#{booking.calander.year}</label>
+                    </div>
+                    <h4 class="box-title"><i class="icon soap-icon-plane-right takeoff-effect yellow-color circle"></i>#{booking.name}<small>Entries : #{booking.entries}</small></h4>
+
+
+                </div>
+                <p>#{booking.description}</p>
+
+            </ui:repeat>
+
+        </div>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>
+            <ui:insert name="title">
+                Voyageur Guide
+            </ui:insert>
+        </title>
+
+        <ui:insert name="header">
+            <ui:include src="/templates/header.xhtml"/>
+        </ui:insert>
+        
+    </h:head>
+    <h:body>
+
+        <div id="page-wrapper">
+
+
+            <header id="header" class="navbar-static-top">
+                <div class="topnav hidden-xs">
+                    <div class="container">
+                        <ul class="quick-menu pull-left">
+                            <li><a href="#">My Account</a></li>
+
+                        </ul>
+                        <ul class="quick-menu pull-right">
+                            <li><a href="#travelo-login" class="soap-popupbox">LOGIN</a></li>
+                            <li><a href="register.xhtml" >SIGNUP</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="main-header">
+
+                    <a href="#mobile-menu-01" data-toggle="collapse" class="mobile-menu-toggle">
+                        Mobile Menu Toggle
+                    </a>
+
+                    <div class="container">
+                        <h1 class="logo navbar-brand">
+                            <a href="index.php" title="Travelo - home">
+                                <h:graphicImage name="images/logo.png" />
+                                <!--<img src="#{resource ['images/logo.png']}" />-->
+                            </a>
+                        </h1>
+
+                        <nav id="main-menu" role="navigation">
+                            <ul class="menu">
+                                <li class="menu-item-has-children">
+                                    <a href="index.xhtml">Home</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="gallery.xhtml">Gallery</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="places.xhtml">Places</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="viewhotels.xhtml">Hotels</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="viewguide.xhtml">Guides</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="viewtaxi.xhtml">Taxies</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="packages.xhtml">Packages</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <nav id="mobile-menu-01" class="mobile-menu collapse">
+                        <ul id="mobile-primary-menu" class="menu">
+                            <li class="menu-item-has-children">
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="hotel-index.html">Places</a>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="flight-index.html">Hotels</a>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="car-index.html">Guides</a>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="cruise-index.html">Resorts</a>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="package.php">Packages</a>
+                            </li>
+                        </ul>
+
+                        <ul class="mobile-topnav container">
+                            <li><a href="#">MY ACCOUNT</a></li>
+
+                            <li><a href="#travelo-login" class="soap-popupbox">LOGIN</a></li>
+                            <li><a href="#travelo-signup" class="soap-popupbox">SIGNUP</a></li>
+
+                        </ul>
+
+                    </nav>
+                </div>
+                <div id="travelo-signup" class="travelo-signup-box travelo-box">
+                    <div class="login-social">
+
+                    </div>
+                    <div class="seperator"><label>OR</label></div>
+                    <div class="simple-signup">
+                        <div class="text-center signup-email-section">
+                            <a href="#" class="signup-email"><i class="soap-icon-letter"></i>Sign up with Email</a>
+                        </div>
+                        <p class="description">By signing up, I agree to Let's Go's Terms of Service, Privacy Policy, Guest Refund olicy, and Host Guarantee Terms.</p>
+                    </div>
+                    <div class="email-signup">
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="input-text full-width" placeholder="first name" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="input-text full-width" placeholder="last name" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="input-text full-width" placeholder="email address" />
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="input-text full-width" placeholder="password" />
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="input-text full-width" placeholder="confirm password" />
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" /> Tell me about Let's Go news
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p class="description">By signing up, I agree to Let's Go's Terms of Service, Privacy Policy, Guest Refund Policy, and Host Guarantee Terms.</p>
+                            </div>
+                            <button type="submit" class="full-width btn-medium">SIGNUP</button>
+                        </form>
+                    </div>
+                    <div class="seperator"></div>
+                    <p>Already a Let's Go member? <a href="#travelo-login" class="goto-login soap-popupbox">Login</a></p>
+                </div>
+                <div id="travelo-login" class="travelo-login-box travelo-box">
+                    <div class="login-social">
+                        <font color="#000000" size="+1">  Log In</font> 
+                    </div>
+                    <div class="seperator"><label></label></div>
+                    <h:form>
+                        <div class="form-group">
+                            <h:inputText class="input-text full-width" a:placeholder="username" value="#{loginController.login.username}" />
+                        </div>
+                        <div class="form-group">
+                            <h:inputSecret class="input-text full-width" a:placeholder="password" value="#{loginController.login.password}" />
+                            
+                        </div>
+                        <div class="form-group">
+                            <a href="forgotpassword.php" class="forgot-password pull-right">Forgot password?</a>
+                            <div class="checkbox checkbox-inline">
+                                <label>
+                                    <input type="checkbox" /> Remember me
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <h:commandButton class="btn btn-primary btn-block" value="Sign In" action="#{loginController.doLogin}" />
+                            <!--<h:commandLink value="Test" action="/Admin/index" />-->
+                        </div>
+                    </h:form>
+                    <div class="seperator"></div>
+                    <p>Don't have an account? <a href="register.xhtml">Sign up</a></p>
+                </div>
+            </header>
+
+
+
+            <ui:insert name="content" />
+
+
+
+            <footer id="footer">
+                <div class="footer-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-3">
+                                <h2>Travel News</h2>
+                                <ul class="travel-news">
+                                    <li>
+                                        <div class="thumb">
+                                            <a href="#">
+                                                <h:graphicImage name="images/170x170/170x170-2.jpg" height="63" width="63" />
+                                            </a>
+                                        </div>
+                                        <div class="description">
+                                            <h5 class="s-title"><a>Amazing Places</a></h5>
+                                            <p>Kerala the God's Own Country have amazing places.</p>
+                                            <span class="date"></span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="thumb">
+                                            <a >
+                                                <h:graphicImage name="images/170x170/170x170-1.jpg" height="63" width="63" />
+                                            </a>
+                                        </div>
+                                        <div class="description">
+                                            <h5 class="s-title"><a >Attractive Prices</a></h5>
+                                            <p>We ensures you affordable prices.</p>
+                                            <span class="date"></span>
+                                        </div>
+
+
+
+
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+
+                                <div class="thumb">
+                                    <h:graphicImage name="images/170x170/kidu.jpg" height="280" width="520" />
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3 col-md-offset-3">
+                                <h2>About Let's go</h2>
+                                <p>Let's go is a voyage management website. It gives you the freedom to choose a place, get suitable guides, comfort hotel and taxi, etc... It gives you the freedom to create your own packages and you can also use our packages.</p>
+                                <br />
+                                <address class="contact-details">
+                                    <span class="contact-phone"><i class="soap-icon-phone"></i>9061655736 -HELLO</span>
+                                    <br />
+                                    <a href="#" class="contact-email">info@letsgotours.com</a>
+                                </address>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom gray-area">
+                    <div class="container">
+                        <div class="logo pull-left">
+                            <a href="index.php" title="Lets go- home">
+                                <h:graphicImage library="images" name="logo.png" />
+                            </a>
+                        </div>
+                        <div class="pull-right">
+                            <a id="back-to-top" href="#" class="animated" data-animation-type="bounce"><i class="soap-icon-longarrow-up circle"></i></a>
+                        </div>
+                        <div class="copyright pull-right">
+                            <p>© 2016 Lets Go</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+
+        </div>
+
+        <ui:insert name="footer">
+            <ui:include src="/templates/footer.xhtml" />
+        </ui:insert>
+
+    </h:body>
+</html>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/templates/home_template.xhtml">
+
+        <ui:define name="content">
+            <div class="page-title-container">
+                <div class="container">
+                    <div class="page-title pull-left">
+                        <h2 class="entry-title">Guide</h2>
+                    </div>
+                    <ul class="breadcrumbs pull-right">
+
+                    </ul>
+                </div>
+            </div>
+
+            <section id="content">
+                <div class="container">
+                    <div id="main">
+                        <div class="col-md-6 col-md-offset-3">
+                            <h:form class="form-horizontal" role="form" onsubmit="return validateform()" enctype="multipart/form-data">
+                                <div class="form-group animated fadeInUp">
+                                    <label for="age" class="form-label col-md-4">Age</label>
+                                    <div class="col-md-8">
+                                        <h:inputText class="form-control" a:placeholder="Age" a:required="true" value="#{registerController.guide.age}" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="dob" class="form-label col-md-4">Date of Birth</label>
+                                    <div class="col-md-8">
+                                        <h:inputText class="form-control datepicker" a:placeholder="Date of Birth" a:required="true" value="#{registerController.guide.dob}" />
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="gender" class="form-label col-md-4">Gender</label>
+                                    <div class="col-md-8">
+                                        <h:selectOneMenu class="form-control" a:required="true" value="#{registerController.guide.gender}">
+                                            <f:selectItem itemValue="" itemLabel="Select" />
+                                            <f:selectItem itemValue="male" itemLabel="Male" />
+                                            <f:selectItem itemValue="female" itemLabel="Female" />
+                                        </h:selectOneMenu>                                        
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="nationality" class="form-label col-md-4">Nationality</label>
+                                    <div class="col-md-8">
+                                        <h:inputText class="form-control" a:placeholder="Nationality" a:required="true" value="#{registerController.guide.nationality}" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="wage" class="form-label col-md-4">Wage</label>
+                                    <div class="col-md-8">
+                                        <h:inputText class="form-control" a:placeholder="Wage" onkeypress="return isNumberKey(event)" a:required="true" value="#{registerController.guide.wage}" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="place" class="form-label col-md-4">Place</label>
+                                    <div class="col-md-8">
+                                        <h:inputText class="form-control" a:placeholder="Place" a:required="true" value="#{registerController.guide.place}" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="education" class="form-label col-md-4">Education Qualification</label>
+                                    <div class="col-md-8">
+                                        <div class="checkbox-inline">
+                                            <h:selectManyCheckbox value="#{registerController.guideQualification}" layout="pageDirection">
+                                                <f:selectItems value="#{registerController.qualification}" />
+                                            </h:selectManyCheckbox>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="languages" class="form-label col-md-4">Languages Known</label>
+                                    <div class="col-md-8">
+                                        <div class="checkbox-inline">
+                                            <h:selectManyCheckbox value="#{registerController.languagesKnown}" layout="pageDirection">
+                                                <f:selectItems value="#{registerController.languages}" />
+                                            </h:selectManyCheckbox>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="district" class="form-label col-md-4">District</label>
+                                    <div class="col-md-8">
+                                        
+                                        <h:selectOneMenu class="form-control" value="#{registerController.guide.district}">
+                                            <f:selectItems value="#{registerController.districts}" />
+                                            <f:ajax listener="#{registerController.setTaluks}" render="taluk" />
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="taluk" class="form-label col-md-4">Taluk</label>
+                                    <div class="col-md-8">
+                                        <h:panelGroup id="taluk">
+                                            <h:selectOneMenu class="form-control" value="#{registerController.guide.taluk}" rendered="#{not empty registerController.taluk}">
+                                                <f:selectItems value="#{registerController.taluk}" />
+                                            </h:selectOneMenu>
+                                        </h:panelGroup>
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="photo" class="form-label col-md-4">Photo</label>
+                                    <div class="col-md-8">
+                                        <h:inputFile class="form-control" a:required="true" value="#{registerController.file}" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="account" class="form-label col-md-4">Account No</label>
+                                    <div class="col-md-8">
+                                        <h:inputText class="form-control" a:placeholder="Account No" a:required="true" value="#{registerController.bank.accountno}" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="cardtype" class="form-label col-md-4">Card Type</label>
+                                    <div class="col-md-8">
+                                        <h:selectOneMenu class="form-control" a:required="true" value="#{registerController.bank.cardtype}">
+                                            <f:selectItem itemValue="" itemLabel="Select" />
+                                            <f:selectItem itemValue="CREDIT" itemLabel="CREDIT" />
+                                            <f:selectItem itemValue="DEBIT" itemLabel="DEBIT" />
+                                        </h:selectOneMenu>
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="bank" class="form-label col-md-4">Bank</label>
+                                    <div class="col-md-8">
+                                        <h:inputText class="form-control" a:placeholder="Bank" a:required="true" value="#{registerController.bank.bank}" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <label for="branch" class="form-label col-md-4">Branch</label>
+                                    <div class="col-md-8">
+                                        <h:inputText class="form-control" a:placeholder="Branch" a:required="true" value="#{registerController.bank.branch}" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group animated fadeInUp">
+                                    <div class="col-md-8 col-md-offset-4">
+                                        <h:commandButton class="btn btn-primary full-width btn-large animated fadeInUp" value="Sign Up" action="#{registerController.createGuide}" />
+                                    </div>
+                                </div>
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </ui:define>
+
+    </ui:composition>
+</html>

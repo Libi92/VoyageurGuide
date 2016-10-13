@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition>
+        <div class="notification-area">
+            <h2 class="skin-color">New Registrations</h2>
+            <div class="info-box block">
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tourist-tab" data-toggle="tab">Tourists</a>
+                    </li>
+                    <li><a href="#guide-tab" data-toggle="tab">Guides</a></li>
+                    <li><a href="#hotel-tab" data-toggle="tab">Hotels</a></li>
+                    <li><a href="#taxi-tab" data-toggle="tab">Taxies</a></li>
+                </ul>
+
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade in active" id="tourist-tab">
+
+                        <h:dataTable styleClass="table table-hover table-select"
+                                     value="#{adminController.unregisteredTourist}" var="user">
+
+                            <h:column>
+                                <f:facet name="header">
+                                    Name
+                                </f:facet>
+                                #{user.firstname} #{user.lastname}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    Address
+                                </f:facet>
+                                #{user.address}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    Phone
+                                </f:facet>
+                                #{user.phone}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    Email
+                                </f:facet>
+                                #{user.email}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+
+                                </f:facet>
+                                <h:form>
+                                    <h:commandLink class="btn btn-success" value="accept" action="#{adminController.userAction(user.loginid, 1)}" />
+                                </h:form>
+                            </h:column>
+                            
+                            <h:column>
+                                <f:facet name="header">
+
+                                </f:facet>
+                                <h:form>
+                                    <h:commandLink class="btn btn-danger" value="reject" action="#{adminController.userAction(user.loginid, 2)}" />
+                                </h:form>
+                            </h:column>
+
+                        </h:dataTable>
+                    </div>
+                    <div class="tab-pane fade" id="guide-tab">
+                        <h:dataTable styleClass="table table-hover table-select"
+                                     value="#{adminController.unregisteredGuide}" var="user">
+
+                            <h:column>
+                                <f:facet name="header">
+                                    Name
+                                </f:facet>
+                                #{user.firstname} #{user.lastname}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    Address
+                                </f:facet>
+                                #{user.address}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    Phone
+                                </f:facet>
+                                #{user.phone}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    Email
+                                </f:facet>
+                                #{user.email}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+
+                                </f:facet>
+                                <h:form>
+                                    <h:commandLink class="btn btn-success" value="accept" action="#{adminController.userAction(user.loginid, 1)}" />
+                                </h:form>
+                            </h:column>
+                            
+                            <h:column>
+                                <f:facet name="header">
+
+                                </f:facet>
+                                <h:form>
+                                    <h:commandLink class="btn btn-danger" value="reject" action="#{adminController.userAction(user.loginid, 2)}" />
+                                </h:form>
+                            </h:column>
+
+                        </h:dataTable>
+                    </div>
+                    <div class="tab-pane fade" id="hotel-tab">
+                        <h:dataTable styleClass="table table-hover table-select"
+                                     value="#{adminController.unregisteredHotel}" var="user">
+
+                            <h:column>
+                                <f:facet name="header">
+                                    Name
+                                </f:facet>
+                                #{user.firstname} #{user.lastname}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    Address
+                                </f:facet>
+                                #{user.address}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    Phone
+                                </f:facet>
+                                #{user.phone}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    Email
+                                </f:facet>
+                                #{user.email}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+
+                                </f:facet>
+                                <h:form>
+                                    <h:commandLink class="btn btn-success" value="accept" action="#{adminController.userAction(user.loginid, 1)}" />
+                                </h:form>
+                            </h:column>
+                            
+                            <h:column>
+                                <f:facet name="header">
+
+                                </f:facet>
+                                <h:form>
+                                    <h:commandLink class="btn btn-danger" value="reject" action="#{adminController.userAction(user.loginid, 2)}" />
+                                </h:form>
+                            </h:column>
+
+                        </h:dataTable>
+                    </div>
+                    <div class="tab-pane fade" id="taxi-tab">
+                        <h:dataTable styleClass="table table-hover table-select"
+                                     value="#{adminController.unregisteredTaxi}" var="user">
+
+                            <h:column>
+                                <f:facet name="header">
+                                    Name
+                                </f:facet>
+                                #{user.firstname} #{user.lastname}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    Address
+                                </f:facet>
+                                #{user.address}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    Phone
+                                </f:facet>
+                                #{user.phone}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    Email
+                                </f:facet>
+                                #{user.email}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+
+                                </f:facet>
+                                <h:form>
+                                    <h:commandLink class="btn btn-success" value="accept" action="#{adminController.userAction(user.loginid, 1)}" />
+                                </h:form>
+                            </h:column>
+                            
+                            <h:column>
+                                <f:facet name="header">
+
+                                </f:facet>
+                                <h:form>
+                                    <h:commandLink class="btn btn-danger" value="reject" action="#{adminController.userAction(user.loginid, 2)}" />
+                                </h:form>
+                            </h:column>
+
+                        </h:dataTable>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ui:composition>
+</html>
